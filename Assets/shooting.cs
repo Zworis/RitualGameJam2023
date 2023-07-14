@@ -42,7 +42,12 @@ public class shooting : MonoBehaviour
         if (Physics.Raycast(bulletSpawnPoint.position, bulletSpawnPoint.forward, out hit, raycastRange, enemyLayerMask))
         {
             Debug.Log("yo jolie"); 
-            Destroy(hit.collider.gameObject);
+            enemy enemy = hit.collider.GetComponent<enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(10);
+            }
+
         //    // if (enemy != null)
         //    // {
         //         enemy.TakeDamage(50);
