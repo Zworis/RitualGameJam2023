@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 	public float drag;
 	public float xSensitivity;
 	public float ySensitivity;
+	public GameObject flashlight;
+	public GameObject hold
 
 
 
@@ -29,6 +31,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		flashlight.transform.position = .transform.position
+
         rb.AddRelativeForce(new Vector3(Input.GetAxisRaw("Horizontal")* speed, 0, Input.GetAxisRaw("Vertical") * speed), ForceMode.Impulse);
 		rb.AddForce(new Vector3(rb.velocity.x  * -drag, 0, rb.velocity.z  * -drag), ForceMode.Impulse);
 		transform.Rotate(new Vector3(0,xSensitivity * Time.timeScale * Input.GetAxis("Mouse X"),0));
